@@ -1,0 +1,40 @@
+.footer {
+	background-color: var(--alternate-background-color);
+	border-radius: 30px 30px 0px 0px;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+	padding: 29px 27px 32px 29px;
+
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+	gap: 11px;
+}
+
+.settings {
+	gap: 35px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.link {
+	font-size: 17px;
+	font-weight: 400;
+}
+
+.languages {
+	display: flex;
+	align-items: center;
+	gap: 17px;
+}
+
+.socials {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}

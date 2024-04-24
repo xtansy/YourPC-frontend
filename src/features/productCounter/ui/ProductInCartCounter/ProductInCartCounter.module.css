@@ -1,0 +1,49 @@
+.root {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.counter {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 122px;
+	width: 100%;
+	gap: 23px;
+}
+
+.round {
+	position: relative;
+	cursor: pointer;
+	width: 35px;
+	height: 30px;
+	border-radius: 100%;
+	background-color: var(--alternative-golden-color);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.count {
+	font-size: 17px;
+	font-weight: 600;
+}
+
+.line {
+	width: 16px;
+	height: 2px;
+	background-color: var(--white-color);
+}
+
+.lineTwo {
+	position: absolute;
+	transform: rotate(90deg);
+}
+
+.bottomPrice {
+	font-size: 15px;
+	font-weight: 600;
+}

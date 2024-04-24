@@ -1,0 +1,18 @@
+.root {
+	margin-top: 50px;
+}
+
+.title {
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+.test {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.test span {
+	color: green;
+	font-weight: 600;
+}

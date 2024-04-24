@@ -1,0 +1,15 @@
+.cart {
+	margin-top: 29px;
+}
+
+.title {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.content {
+	margin-top: 13px;
+	display: flex;
+	justify-content: space-between;
+	gap: 127px;
+}
