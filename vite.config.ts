@@ -5,9 +5,6 @@ import path from "path";
 const { resolve } = path;
 
 export default defineConfig({
-    define: {
-        __APP_ENV__: process.env.VITE_URL,
-    },
     plugins: [react()],
     resolve: {
         alias: {
