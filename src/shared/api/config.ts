@@ -17,8 +17,10 @@ interface ConfigAPI {
     };
 }
 
+const BASE_URL = process.env.BACKEND_URL || "http://localhost:3030/";
+
 export const config: ConfigAPI = {
-    baseUrl: "http://localhost:3030/",
+    baseUrl: BASE_URL,
     paths: {
         products: {
             getAll: "/products/",
