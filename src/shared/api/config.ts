@@ -17,9 +17,7 @@ interface ConfigAPI {
     };
 }
 
-const BASE_URL = process.env.REACT_APP_URL || "http://localhost:3030/";
-
-console.log("process", process);
+const BASE_URL = process.env.VITE_REACT_APP_URL || "http://localhost:3030/";
 
 export const config: ConfigAPI = {
     baseUrl: BASE_URL,
