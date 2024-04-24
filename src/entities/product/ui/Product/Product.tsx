@@ -5,6 +5,7 @@ import {
     Typography,
     CardActions,
     CardContent,
+    CardHeader,
     Rating,
 } from "@mui/material";
 
@@ -25,18 +26,20 @@ export const Product: FC<ProductProps> = ({ item, bottomSlot, headerSlot }) => {
                 minWidth: 350,
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
                 justifyContent: "space-between",
             }}
             variant="outlined"
         >
+            <CardHeader
+                sx={{ padding: "0 5px 0 0" }}
+                action={<>{headerSlot}</>}
+            />
             <CardMedia
                 component="img"
                 image={item.img}
-                sx={{ maxWidth: 300, maxHeight: 400, objectFit: "contain" }}
+                sx={{ maxWidth: 400, maxHeight: 300, objectFit: "contain" }}
             />
             <CardContent>
-                {headerSlot}
                 <Box
                     sx={{
                         display: "flex",
@@ -56,7 +59,7 @@ export const Product: FC<ProductProps> = ({ item, bottomSlot, headerSlot }) => {
                     }}
                 >
                     <Rating value={item.rate} name="read-only" readOnly />
-                    <CardActions>{bottomSlot && bottomSlot}</CardActions>
+                    <CardActions>{bottomSlot}</CardActions>
                 </Box>
             </CardContent>
         </Card>

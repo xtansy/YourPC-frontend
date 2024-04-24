@@ -19,7 +19,7 @@ export const Logo = () => {
                 filter: "drop-shadow(3px 3px 15px blue)",
             }}
         >
-            <IconButton>
+            <IconButton color="primary">
                 <LogoSvg />
             </IconButton>
             <Typography

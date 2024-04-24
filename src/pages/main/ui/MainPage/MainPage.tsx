@@ -21,8 +21,8 @@ export const MainPage = () => {
 
     return (
         <div className={css.main}>
-            <Catalog title="Наушники" items={wiredHeadphones} />
-            <Catalog title="Беспроводные наушники" items={wirelessHeadphones} />
+            <Catalog title="Товары" items={wiredHeadphones} />
+            <Catalog title="Товары" items={wirelessHeadphones} />
         </div>
     );
 };

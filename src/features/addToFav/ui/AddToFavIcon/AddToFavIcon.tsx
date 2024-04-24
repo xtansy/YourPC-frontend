@@ -1,11 +1,13 @@
 import { useAppDispatch, useAppSelector } from "shared/model";
-import { Icon } from "shared/ui";
 import { type IProduct } from "entities/product";
 import {
     productInFavoritesSelector,
     addItem,
     removeItem,
 } from "entities/favorites";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { IconButton } from "@mui/material";
 
 interface AddToFavIconProps {
     item: IProduct;
@@ -27,6 +29,12 @@ export const AddToFavIcon: React.FC<AddToFavIconProps> = ({ item }) => {
     };
 
     return (
-        <Icon onClick={onClickFav} type={existItem ? "fill-like" : "like"} />
+        <IconButton onClick={onClickFav}>
+            {existItem ? (
+                <FavoriteIcon color="primary" />
+            ) : (
+                <FavoriteBorderIcon color="primary" />
+            )}
+        </IconButton>
     );
 };
