@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import { Layout } from "shared/ui/";
@@ -17,7 +18,7 @@ import { Footer } from "widgets/footer";
 import { HeaderMenu } from "widgets/headerMenu";
 
 interface GuardProps {
-    children: React.ReactNode;
+    children: ReactNode;
     isLoginPage?: boolean;
 }
 

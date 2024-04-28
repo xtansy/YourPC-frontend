@@ -16,7 +16,7 @@ export const AddToCartButton: FC<AddToCartButtonProps> = ({ item }) => {
     };
 
     return (
-        <Button size="large" onClick={onClickAdd}>
+        <Button variant="outlined" size="large" onClick={onClickAdd}>
             Купить
         </Button>
     );

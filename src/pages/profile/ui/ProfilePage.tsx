@@ -72,12 +72,25 @@ export const ProfilePage = () => {
                         </Stack>
                     </CardContent>
 
-                    <CardActions sx={{ alignSelf: "center" }}>
-                        <Stack direction="row" spacing={2}>
-                            <Button color="info" size="large">
+                    <CardActions sx={{ py: "20px" }}>
+                        <Stack
+                            direction="row"
+                            alignItems="center"
+                            justifyContent="space-around"
+                            width="100%"
+                        >
+                            <Button
+                                variant="outlined"
+                                color="info"
+                                size="large"
+                            >
                                 Редактировать
                             </Button>
-                            <Button color="error" size="large">
+                            <Button
+                                variant="outlined"
+                                color="error"
+                                size="large"
+                            >
                                 Выйти
                             </Button>
                         </Stack>
