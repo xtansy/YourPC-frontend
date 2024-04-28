@@ -1,21 +1,46 @@
-import css from "./Summary.module.css";
+import { FC } from "react";
 
-import { Button } from "shared/ui";
+import { Box, Typography, Button, Paper } from "@mui/material";
 
 interface SummaryProps {
-	totalPrice: number;
+    totalPrice: number;
 }
 
-export const Summary: React.FC<SummaryProps> = ({ totalPrice }) => {
-	return (
-		<div className={css.summary}>
-			<div className={css.content}>
-				<div className={css.text}>Итого</div>
-				<div className={css.price}>₽ {totalPrice}</div>
-			</div>
-			<Button variant="blackWhite" className={css.summaryButton}>
-				Перейти к оформлению
-			</Button>
-		</div>
-	);
+export const Summary: FC<SummaryProps> = ({ totalPrice }) => {
+    return (
+        <Box
+            sx={{
+                width: "100%",
+                maxWidth: "360px",
+                maxHeight: "120px",
+                border: "1px solid rgba(51, 153, 255, 0.25)",
+                borderRadius: "5px",
+            }}
+        >
+            <Paper
+                sx={{
+                    borderRadius: "5px",
+                    width: "100%",
+                    height: "100%",
+                    padding: "20px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    gap: "7px",
+                }}
+            >
+                <Box
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                    }}
+                >
+                    <Typography variant="h6">Итого</Typography>
+                    <Typography variant="h5"> {totalPrice} ₽</Typography>
+                </Box>
+                <Button size="large">Перейти к оформлению</Button>
+            </Paper>
+        </Box>
+    );
 };

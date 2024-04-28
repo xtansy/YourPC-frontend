@@ -1,5 +1,3 @@
-import css from "./ProductInCartCounter.module.css";
-
 import { useAppDispatch } from "shared/model";
 import { type CartItem, addItem, minusItem } from "entities/cart";
 import { Box, Typography, IconButton } from "@mui/material";
@@ -26,7 +24,14 @@ export const ProductInCartCounter: React.FC<ProductInCartCounterProps> = ({
     };
 
     return (
-        <Box sx={{ width: withSummary ? "100%" : "" }}>
+        <Box
+            sx={{
+                width: withSummary ? "100%" : "",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+            }}
+        >
             <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <IconButton color="primary" onClick={onClickMinus}>
                     <RemoveCircleOutlineOutlinedIcon
@@ -44,9 +49,9 @@ export const ProductInCartCounter: React.FC<ProductInCartCounterProps> = ({
             </Box>
 
             {withSummary && (
-                <div className={css.bottomPrice}>
+                <Typography variant="h6">
                     {product.price * product.count} ₽
-                </div>
+                </Typography>
             )}
         </Box>
     );

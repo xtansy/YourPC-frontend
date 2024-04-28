@@ -1,6 +1,7 @@
 import { FC, type ReactNode } from "react";
 
 import { AppBar, Box, Button, Toolbar } from "@mui/material/";
+import { useNavigate } from "react-router-dom";
 
 import { Logo } from "shared/ui";
 
@@ -9,6 +10,12 @@ interface HeaderProps {
 }
 
 export const Header: FC<HeaderProps> = ({ rightSlot }) => {
+    const navigate = useNavigate();
+
+    const onClickCatalog = () => {
+        navigate("/catalog");
+    };
+
     return (
         <AppBar
             position="static"
@@ -28,7 +35,11 @@ export const Header: FC<HeaderProps> = ({ rightSlot }) => {
                     sx={{ display: "flex", alignItems: "center", gap: "10px" }}
                 >
                     <Logo />
-                    <Button sx={{ color: "white" }} size="large">
+                    <Button
+                        onClick={onClickCatalog}
+                        sx={{ color: "white" }}
+                        size="large"
+                    >
                         Каталог
                     </Button>
                 </Box>

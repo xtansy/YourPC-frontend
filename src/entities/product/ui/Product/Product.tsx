@@ -3,7 +3,6 @@ import {
     Box,
     CardMedia,
     Typography,
-    CardActions,
     CardContent,
     CardHeader,
     Rating,
@@ -28,7 +27,6 @@ export const Product: FC<ProductProps> = ({ item, bottomSlot, headerSlot }) => {
                 flexDirection: "column",
                 justifyContent: "space-between",
             }}
-            variant="outlined"
         >
             <CardHeader
                 sx={{ padding: "0 5px 0 0" }}
@@ -45,21 +43,23 @@ export const Product: FC<ProductProps> = ({ item, bottomSlot, headerSlot }) => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-between",
+                        gap: "15px",
                     }}
                 >
                     <Typography variant="h5">{item.title}</Typography>
-                    <Typography variant="h5">{item.price} Р</Typography>
+                    <Typography variant="h6">{item.price} ₽</Typography>
                 </Box>
 
                 <Box
                     sx={{
+                        minHeight: "51px",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-between",
                     }}
                 >
                     <Rating value={item.rate} name="read-only" readOnly />
-                    <CardActions>{bottomSlot}</CardActions>
+                    <Box>{bottomSlot}</Box>
                 </Box>
             </CardContent>
         </Card>

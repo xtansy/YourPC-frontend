@@ -7,6 +7,7 @@ import { MainPage } from "pages/main";
 import { CartPage } from "pages/cart";
 import { LoginPage } from "pages/login";
 import { FavoritesPage } from "pages/favorites";
+import { CatalogPage } from "pages/catalog";
 
 import { isAuthSelector } from "entities/user";
 
@@ -45,6 +46,7 @@ export const Routing = () => {
                 }
             >
                 <Route path="/" element={<MainPage />} />
+                <Route path="/catalog" element={<CatalogPage />} />
                 <Route
                     path="/cart"
                     element={

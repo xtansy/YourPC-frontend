@@ -1,12 +1,13 @@
-import css from "./CardList.module.css";
+import { ReactNode } from "react";
+import { Box } from "@mui/material";
 
 import { IProduct } from "entities/product/model/types";
 import { Card } from "../Card/Card";
 
 interface CardListProps<T extends IProduct> {
     items: T[];
-    renderCardActionsSlot?: (id: T["_id"]) => React.ReactNode;
-    renderCardBottomSlot?: (product: T) => React.ReactNode;
+    renderCardActionsSlot?: (id: T["_id"]) => ReactNode;
+    renderCardBottomSlot?: (product: T) => ReactNode;
 }
 
 export const CardList = <T extends IProduct>({
@@ -15,23 +16,29 @@ export const CardList = <T extends IProduct>({
     renderCardBottomSlot,
 }: CardListProps<T>) => {
     return (
-        <div className={css.list}>
-            {items.map((headphone: T) => {
+        <Box
+            sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "15px",
+                width: "100%",
+            }}
+        >
+            {items.map((item: T) => {
                 return (
                     <Card
-                        key={headphone._id}
-                        item={headphone}
+                        key={item._id}
+                        item={item}
                         actionSlot={
                             renderCardActionsSlot &&
-                            renderCardActionsSlot(headphone._id)
+                            renderCardActionsSlot(item._id)
                         }
                         bottomSlot={
-                            renderCardBottomSlot &&
-                            renderCardBottomSlot(headphone)
+                            renderCardBottomSlot && renderCardBottomSlot(item)
                         }
                     />
                 );
             })}
-        </div>
+        </Box>
     );
 };

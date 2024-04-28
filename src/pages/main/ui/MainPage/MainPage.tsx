@@ -3,16 +3,16 @@ import css from "./MainPage.module.css";
 import { useEffect } from "react";
 
 import { getProductsAsync } from "entities/product";
-import { Catalog } from "widgets/catalog";
+import { ProductsListWidget } from "widgets/productsListWidget";
 import {
-    wiredHeadphonesSelector,
+    // wiredHeadphonesSelector,
     wirelessHeadphonesSelector,
 } from "entities/product";
 import { useAppSelector, useAppDispatch } from "shared/model";
 
 export const MainPage = () => {
     const dispatch = useAppDispatch();
-    const wiredHeadphones = useAppSelector(wiredHeadphonesSelector);
+    // const wiredHeadphones = useAppSelector(wiredHeadphonesSelector);
     const wirelessHeadphones = useAppSelector(wirelessHeadphonesSelector);
 
     useEffect(() => {
@@ -21,8 +21,8 @@ export const MainPage = () => {
 
     return (
         <div className={css.main}>
-            <Catalog title="Товары" items={wiredHeadphones} />
-            <Catalog title="Товары" items={wirelessHeadphones} />
+            {/* <ProductsList title="Товары" items={wiredHeadphones} /> */}
+            <ProductsListWidget title="Товары" items={wirelessHeadphones} />
         </div>
     );
 };

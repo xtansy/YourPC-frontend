@@ -4,19 +4,20 @@ import { useAppSelector } from "shared/model";
 import { cartItemsSelector, cartTotalPriceSelector } from "entities/cart";
 
 import { Summary } from "../Summary/Summary";
-import { CartItemsList } from "../CartItemsList/CartItemsList";
+import { CardListWidget } from "widgets/cardListWidget";
+import { Typography } from "@mui/material";
 
 export const CartPage = () => {
-	const cartItems = useAppSelector(cartItemsSelector);
-	const totalPrice = useAppSelector(cartTotalPriceSelector);
+    const cartItems = useAppSelector(cartItemsSelector);
+    const totalPrice = useAppSelector(cartTotalPriceSelector);
 
-	return (
-		<div className={css.cart}>
-			<h2 className={css.title}>Корзина</h2>
-			<div className={css.content}>
-				<CartItemsList items={cartItems} />
-				<Summary totalPrice={totalPrice} />
-			</div>
-		</div>
-	);
+    return (
+        <div className={css.cart}>
+            <Typography variant="h4">Корзина</Typography>
+            <div className={css.content}>
+                <CardListWidget items={cartItems} />
+                <Summary totalPrice={totalPrice} />
+            </div>
+        </div>
+    );
 };

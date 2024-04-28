@@ -2,13 +2,13 @@ import css from "./FavoritesPage.module.css";
 
 import { useAppSelector } from "shared/model";
 import { favoritesItemsSelector } from "entities/favorites";
-import { Catalog } from "widgets/catalog";
+import { ProductsListWidget } from "widgets/productsListWidget";
 
 export const FavoritesPage = () => {
     const items = useAppSelector(favoritesItemsSelector);
     return (
         <div className={css.favorites}>
-            <Catalog title="Понравившиеся" items={items} />
+            <ProductsListWidget title="Понравившиеся" items={items} />
         </div>
     );
 };

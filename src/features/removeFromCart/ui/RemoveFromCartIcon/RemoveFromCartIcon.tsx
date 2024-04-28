@@ -1,20 +1,26 @@
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { IconButton } from "@mui/material";
+
 import { useAppDispatch } from "shared/model";
-import { Icon } from "shared/ui";
 
 import { type CartItem, removeItem } from "entities/cart";
 
 interface RemoveFromCartIconProps {
-	id: CartItem["_id"];
+    id: CartItem["_id"];
 }
 
 export const RemoveFromCartIcon: React.FC<RemoveFromCartIconProps> = ({
-	id,
+    id,
 }) => {
-	const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
 
-	const onClickAdd = () => {
-		dispatch(removeItem(id));
-	};
+    const onClickRemove = () => {
+        dispatch(removeItem(id));
+    };
 
-	return <Icon onClick={onClickAdd} type="trash" />;
+    return (
+        <IconButton color="error" onClick={onClickRemove}>
+            <DeleteOutlineIcon color="error" />
+        </IconButton>
+    );
 };

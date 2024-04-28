@@ -12,7 +12,7 @@ import { AddToCartButton } from "features/addToCart";
 import { AddToFavIcon } from "features/addToFav";
 import { FC } from "react";
 
-interface CatalogProps {
+interface ProductsListWidgetProps {
     title: string;
     items: IProduct[];
 }
@@ -33,7 +33,10 @@ export const BottomSlot: FC<BottomSlotProps> = ({ currentProduct }) => {
     );
 };
 
-export const Catalog: FC<CatalogProps> = ({ title, items }) => {
+export const ProductsListWidget: FC<ProductsListWidgetProps> = ({
+    title,
+    items,
+}) => {
     const isAuth = useAppSelector(isAuthSelector);
 
     return (
