@@ -22,7 +22,10 @@ export const MainPage = () => {
     return (
         <div className={css.main}>
             {/* <ProductsList title="Товары" items={wiredHeadphones} /> */}
-            <ProductsListWidget title="Товары" items={wirelessHeadphones} />
+            <ProductsListWidget
+                title="Лучшие комплектующие"
+                items={wirelessHeadphones}
+            />
         </div>
     );
 };

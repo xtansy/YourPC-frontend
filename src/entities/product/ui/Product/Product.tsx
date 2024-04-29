@@ -22,7 +22,10 @@ export const Product: FC<ProductProps> = ({ item, bottomSlot, headerSlot }) => {
         <Card
             sx={{
                 p: 1,
-                minWidth: 350,
+                width: "100%",
+                height: "100%",
+                maxWidth: 400,
+                maxHeight: 450,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",

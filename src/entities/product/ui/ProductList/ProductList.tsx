@@ -27,6 +27,7 @@ export const ProductList: FC<ProductListProps> = ({
             {items.map((item) => {
                 return (
                     <Product
+                        key={item._id}
                         item={item}
                         headerSlot={
                             renderProductHeaderSlot &&

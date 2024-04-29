@@ -3,25 +3,25 @@ import { CatalogItemData } from "./types";
 export const CATALOGS_DATA: CatalogItemData[] = [
     {
         name: "Видеокарты",
-        to: "/videocard",
+        to: "/videocards",
         imageUrl:
-            "https://res.cloudinary.com/dwe4hewmt/image/upload/v1713705242/процессор_2_qcbrbm.webp",
+            "https://res.cloudinary.com/dwe4hewmt/image/upload/v1713705202/catalog_1_tqfkkq.jpg",
     },
     {
         name: "Материнские платы",
-        to: "/videocard",
+        to: "/motherboards",
         imageUrl:
-            "https://res.cloudinary.com/dwe4hewmt/image/upload/v1713705242/процессор_2_qcbrbm.webp",
+            "https://res.cloudinary.com/dwe4hewmt/image/upload/v1713705219/catalog_2_uz5xtm.jpg",
     },
     {
         name: "Оперативная память",
-        to: "/videocard",
+        to: "/rams",
         imageUrl:
-            "https://res.cloudinary.com/dwe4hewmt/image/upload/v1713705242/процессор_2_qcbrbm.webp",
+            "https://res.cloudinary.com/dwe4hewmt/image/upload/v1713705219/catalog_3_qkklmz.jpg",
     },
     {
         name: "Процессоры",
-        to: "/videocard",
+        to: "/processors",
         imageUrl:
             "https://res.cloudinary.com/dwe4hewmt/image/upload/v1713705242/процессор_2_qcbrbm.webp",
     },

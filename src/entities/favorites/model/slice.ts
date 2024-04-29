@@ -16,7 +16,11 @@ export const favoritesModel = createSlice({
         removeItem: (state, { payload }: PayloadAction<IProduct["_id"]>) => {
             state.items = state.items.filter((item) => item._id !== payload);
         },
+        clearFavoritesData: (state) => {
+            state.items = [];
+        },
     },
 });
 
-export const { addItem, removeItem } = favoritesModel.actions;
+export const { addItem, removeItem, clearFavoritesData } =
+    favoritesModel.actions;

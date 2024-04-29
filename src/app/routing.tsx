@@ -10,6 +10,7 @@ import { LoginPage } from "pages/login";
 import { FavoritesPage } from "pages/favorites";
 import { CatalogPage } from "pages/catalog";
 import { ProfilePage } from "pages/profile";
+import { ProductsPage } from "pages/products";
 
 import { isAuthSelector } from "entities/user";
 
@@ -49,6 +50,11 @@ export const Routing = () => {
             >
                 <Route path="/" element={<MainPage />} />
                 <Route path="/catalog" element={<CatalogPage />} />
+
+                <Route path="/videocards" element={<ProductsPage />} />
+                <Route path="/motherboards" element={<ProductsPage />} />
+                <Route path="/rams" element={<ProductsPage />} />
+                <Route path="/processors" element={<ProductsPage />} />
 
                 <Route
                     path="/profile"
