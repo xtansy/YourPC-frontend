@@ -24,7 +24,7 @@ export const ProductBig: FC<ProductBigProps> = ({ item }) => {
             <Stack direction="row" spacing={10}>
                 <CardMedia
                     component="img"
-                    sx={{ maxWidth: 500, maxHeight: 600, objectFit: "contain" }}
+                    sx={{ maxWidth: 300, maxHeight: 400, objectFit: "contain" }}
                     image={item.img}
                     alt="Product image"
                 />
