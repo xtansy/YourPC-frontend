@@ -3,6 +3,7 @@ import { type CartItem, addItem, minusItem } from "entities/cart";
 import { Box, Typography, IconButton } from "@mui/material";
 import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import { MouseEventHandler } from "react";
 
 interface ProductInCartCounterProps {
     product: CartItem;
@@ -15,11 +16,13 @@ export const ProductInCartCounter: React.FC<ProductInCartCounterProps> = ({
 }) => {
     const dispatch = useAppDispatch();
 
-    const onClickPlus = () => {
+    const onClickPlus: MouseEventHandler<HTMLButtonElement> = (e) => {
+        e.stopPropagation();
         dispatch(addItem(product));
     };
 
-    const onClickMinus = () => {
+    const onClickMinus: MouseEventHandler<HTMLButtonElement> = (e) => {
+        e.stopPropagation();
         dispatch(minusItem(product._id));
     };
 

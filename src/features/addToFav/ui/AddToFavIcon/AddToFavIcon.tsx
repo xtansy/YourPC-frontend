@@ -8,6 +8,7 @@ import {
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { IconButton } from "@mui/material";
+import { MouseEventHandler } from "react";
 
 interface AddToFavIconProps {
     item: IProduct;
@@ -20,7 +21,8 @@ export const AddToFavIcon: React.FC<AddToFavIconProps> = ({ item }) => {
         productInFavoritesSelector(state, item._id)
     );
 
-    const onClickFav = () => {
+    const onClickFav: MouseEventHandler<HTMLButtonElement> = (e) => {
+        e.stopPropagation();
         if (!existItem) {
             dispatch(addItem(item));
             return;

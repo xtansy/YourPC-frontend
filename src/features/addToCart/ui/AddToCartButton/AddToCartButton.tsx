@@ -1,8 +1,10 @@
+import { FC, MouseEventHandler } from "react";
+import { Button } from "@mui/material";
+
 import { useAppDispatch } from "shared/model";
+
 import { addItem } from "entities/cart";
 import { IProduct } from "entities/product";
-import { Button } from "@mui/material";
-import { FC } from "react";
 
 interface AddToCartButtonProps {
     item: IProduct;
@@ -11,7 +13,8 @@ interface AddToCartButtonProps {
 export const AddToCartButton: FC<AddToCartButtonProps> = ({ item }) => {
     const dispatch = useAppDispatch();
 
-    const onClickAdd = () => {
+    const onClickAdd: MouseEventHandler<HTMLButtonElement> = (e) => {
+        e.stopPropagation();
         dispatch(addItem(item));
     };
 
