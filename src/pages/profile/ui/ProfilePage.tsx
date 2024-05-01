@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 
 import { Profile } from "entities/user/ui";
 
@@ -15,6 +15,9 @@ export const ProfilePage = () => {
                 editLogoutButtonsSlot={
                     <>
                         <EditUserButton />
+                        <Button size="large" variant="outlined">
+                            Сменить пароль
+                        </Button>
                         <LogoutButton />
                     </>
                 }

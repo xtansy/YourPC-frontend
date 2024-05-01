@@ -12,6 +12,10 @@ import { CatalogPage } from "pages/catalog";
 import { ProfilePage } from "pages/profile";
 import { ProductsPage } from "pages/products";
 import { ProductPage } from "pages/product";
+import { RegisterPage } from "pages/register";
+import { RecoveryPage } from "pages/recovery/";
+import { ProfileEditPage } from "pages/profileEdit";
+import { OrdersPage } from "pages/orders";
 
 import { isAuthSelector } from "entities/user";
 
@@ -59,6 +63,14 @@ export const Routing = () => {
                 <Route path="/processors" element={<ProductsPage />} />
 
                 <Route
+                    path="/orders"
+                    element={
+                        <Guard>
+                            <OrdersPage />
+                        </Guard>
+                    }
+                />
+                <Route
                     path="/profile"
                     element={
                         <Guard>
@@ -66,7 +78,14 @@ export const Routing = () => {
                         </Guard>
                     }
                 />
-
+                <Route
+                    path="/profileEdit"
+                    element={
+                        <Guard>
+                            <ProfileEditPage />
+                        </Guard>
+                    }
+                />
                 <Route
                     path="/cart"
                     element={
@@ -84,10 +103,27 @@ export const Routing = () => {
                     }
                 />
                 <Route
+                    path="/register"
+                    element={
+                        <Guard isLoginPage>
+                            <RegisterPage />
+                        </Guard>
+                    }
+                />
+                <Route
                     path="/login"
                     element={
                         <Guard isLoginPage>
                             <LoginPage />
+                        </Guard>
+                    }
+                />
+
+                <Route
+                    path="/recovery"
+                    element={
+                        <Guard isLoginPage>
+                            <RecoveryPage />
                         </Guard>
                     }
                 />

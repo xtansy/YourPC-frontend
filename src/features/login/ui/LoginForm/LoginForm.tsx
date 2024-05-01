@@ -1,69 +1,126 @@
-import css from "./LoginForm.module.css";
-
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
 
-import { Button } from "shared/ui";
 import {
-	type LoginFormSchema,
-	loginFormSchema,
+    Box,
+    Button,
+    Card,
+    CardActions,
+    CardContent,
+    Stack,
+    TextField,
+    Typography,
+} from "@mui/material";
+
+import {
+    type LoginFormSchema,
+    loginFormSchema,
 } from "../../model/loginFormSchema";
+
 import { useAppDispatch } from "shared/model";
 import { loginAsync } from "entities/user";
 
 interface LoginFormProps {
-	onComplete?: () => void;
+    onComplete?: () => void;
 }
 
 export const LoginForm: React.FC<LoginFormProps> = ({ onComplete }) => {
-	const dispatch = useAppDispatch();
-	const {
-		setError,
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm<LoginFormSchema>({
-		resolver: yupResolver(loginFormSchema),
-	});
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+    const {
+        setError,
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<LoginFormSchema>({
+        resolver: yupResolver(loginFormSchema),
+    });
 
-	const onSubmit = (data: LoginFormSchema) => {
-		dispatch(loginAsync(data))
-			.unwrap()
-			.then(() => {
-				if (onComplete) onComplete();
-			})
-			.catch((error: { message: string }) => {
-				setError("password", {
-					message: error.message,
-				});
-			});
-	};
+    const onSubmit = (data: LoginFormSchema) => {
+        dispatch(loginAsync(data))
+            .unwrap()
+            .then(() => {
+                if (onComplete) onComplete();
+            })
+            .catch((error: { message: string }) => {
+                setError("password", {
+                    message: error.message,
+                });
+            });
+    };
 
-	return (
-		<form onSubmit={handleSubmit(onSubmit)} className={css.form}>
-			<div className={css.formblock}>
-				<label htmlFor="login">Login</label>
-				<input
-					{...register("login")}
-					id="login"
-					type="text"
-					className={css.input}
-				/>
-				<p className={css.error}>{errors.login?.message}</p>
-			</div>
-			<div className={css.formblock}>
-				<label htmlFor="password">Password</label>
-				<input
-					{...register("password")}
-					id="password"
-					type="password"
-					className={css.input}
-				/>
-				<p className={css.error}>{errors.password?.message}</p>
-			</div>
-			<Button type="submit" className={css.button} variant="blackWhite">
-				Login
-			</Button>
-		</form>
-	);
+    const onClickRegister = () => {
+        navigate("/register");
+    };
+
+    const onClickRecovery = () => {
+        navigate("/recovery");
+    };
+
+    return (
+        <Card sx={{ maxWidth: "350px" }}>
+            <CardContent>
+                <Stack spacing={2}>
+                    <Typography>Введите данные для входа</Typography>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "20px",
+                        }}
+                        component="form"
+                        onSubmit={handleSubmit(onSubmit)}
+                    >
+                        <Stack spacing={1}>
+                            <TextField
+                                {...register("login")}
+                                label="Логин"
+                                variant="outlined"
+                            />
+                            <Typography color="error.main">
+                                {errors.login?.message}
+                            </Typography>
+                        </Stack>
+                        <Stack spacing={1}>
+                            <TextField
+                                {...register("password")}
+                                label="Пароль"
+                                variant="outlined"
+                            />
+                            <Typography color="error.main">
+                                {errors.password?.message}
+                            </Typography>
+                        </Stack>
+                        <CardActions sx={{ width: "100%" }}>
+                            <Stack spacing={1} width={"100%"}>
+                                <Button
+                                    size="large"
+                                    variant="outlined"
+                                    type="submit"
+                                >
+                                    Войти
+                                </Button>
+                                <Button
+                                    onClick={onClickRegister}
+                                    variant="text"
+                                >
+                                    Зарегистрироваться
+                                </Button>
+                                <Typography
+                                    onClick={onClickRecovery}
+                                    sx={{ cursor: "pointer" }}
+                                    variant="body1"
+                                    alignSelf="center"
+                                    color="text.secondary"
+                                >
+                                    Забыли пароль?
+                                </Typography>
+                            </Stack>
+                        </CardActions>
+                    </Box>
+                </Stack>
+            </CardContent>
+        </Card>
+    );
 };
