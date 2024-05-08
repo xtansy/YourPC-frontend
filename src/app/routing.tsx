@@ -16,6 +16,7 @@ import { RegisterPage } from "pages/register";
 import { RecoveryPage } from "pages/recovery/";
 import { ProfileEditPage } from "pages/profileEdit";
 import { OrdersPage } from "pages/orders";
+import { ComparisonPage } from "pages/comparison";
 
 import { isAuthSelector } from "entities/user";
 
@@ -56,6 +57,7 @@ export const Routing = () => {
                 <Route path="/" element={<MainPage />} />
                 <Route path="/product" element={<ProductPage />} />
                 <Route path="/catalog" element={<CatalogPage />} />
+                <Route path="/comparison" element={<ComparisonPage />} />
 
                 <Route path="/videocards" element={<ProductsPage />} />
                 <Route path="/motherboards" element={<ProductsPage />} />

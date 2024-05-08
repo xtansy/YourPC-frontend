@@ -16,6 +16,10 @@ export const Header: FC<HeaderProps> = ({ rightSlot }) => {
         navigate("/catalog");
     };
 
+    const onClickComparison = () => {
+        navigate("/comparison");
+    };
+
     return (
         <AppBar
             position="static"
@@ -41,6 +45,14 @@ export const Header: FC<HeaderProps> = ({ rightSlot }) => {
                         size="large"
                     >
                         Каталог
+                    </Button>
+
+                    <Button
+                        onClick={onClickComparison}
+                        sx={{ color: "white" }}
+                        size="large"
+                    >
+                        Сравнение
                     </Button>
                 </Box>
 
