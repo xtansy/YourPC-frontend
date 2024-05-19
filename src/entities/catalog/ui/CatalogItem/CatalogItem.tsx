@@ -18,12 +18,7 @@ export const CatalogItem: FC<CatalogItemProps> = ({ name, imageUrl, to }) => {
             onClick={onClickCatalog}
             sx={{
                 cursor: "pointer",
-
                 minHeight: "450px",
-
-                // width: "100%",
-                // maxWidth: "400px",
-
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -46,7 +41,8 @@ export const CatalogItem: FC<CatalogItemProps> = ({ name, imageUrl, to }) => {
         >
             <img
                 style={{
-                    width: 300,
+                    width: 400,
+                    height: 350,
                     borderRadius: "12px",
                     objectFit: "contain",
                 }}

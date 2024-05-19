@@ -4,6 +4,18 @@ interface ConfigAPI {
         products: {
             getAll: string;
         };
+        motherboards: {
+            getAll: string;
+        };
+        processors: {
+            getAll: string;
+        };
+        videocards: {
+            getAll: string;
+        };
+        rams: {
+            getAll: string;
+        };
         user: {
             refresh: string;
             register: string;
@@ -24,6 +36,18 @@ export const config: ConfigAPI = {
     paths: {
         products: {
             getAll: "/products/",
+        },
+        motherboards: {
+            getAll: "/motherboards/",
+        },
+        rams: {
+            getAll: "/rams/",
+        },
+        videocards: {
+            getAll: "/videocards/",
+        },
+        processors: {
+            getAll: "/processors/",
         },
         user: {
             register: "/user/register",

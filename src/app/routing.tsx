@@ -4,7 +4,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "shared/ui/";
 import { useAppSelector } from "shared/model";
 
-import { MainPage } from "pages/main";
 import { CartPage } from "pages/cart";
 import { LoginPage } from "pages/login";
 import { FavoritesPage } from "pages/favorites";
@@ -54,11 +53,11 @@ export const Routing = () => {
                     />
                 }
             >
-                <Route path="/" element={<MainPage />} />
                 <Route path="/product" element={<ProductPage />} />
                 <Route path="/catalog" element={<CatalogPage />} />
                 <Route path="/comparison" element={<ComparisonPage />} />
 
+                <Route path="/" element={<ProductsPage />} />
                 <Route path="/videocards" element={<ProductsPage />} />
                 <Route path="/motherboards" element={<ProductsPage />} />
                 <Route path="/rams" element={<ProductsPage />} />

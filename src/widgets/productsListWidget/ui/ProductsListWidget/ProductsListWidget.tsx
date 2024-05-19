@@ -41,7 +41,10 @@ export const ProductsListWidget: FC<ProductsListWidgetProps> = ({
 
     return (
         <Box>
-            <Typography variant="h4" sx={{ marginBottom: 5 }}>
+            <Typography
+                variant="h4"
+                sx={{ marginTop: "28px", marginBottom: "30px" }}
+            >
                 {title}
             </Typography>
             <ProductList

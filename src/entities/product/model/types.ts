@@ -1,6 +1,6 @@
 type ProductType = "wired" | "wireless";
 
-export interface IProduct {
+interface IProductBase {
     _id: string;
     img: string;
     title: string;
@@ -8,6 +8,18 @@ export interface IProduct {
     rate: number;
     type: ProductType;
 }
+
+interface IProcessor extends IProductBase {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    characteristics: any;
+}
+
+interface IMotherboard extends IProductBase {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    characteristics: any;
+}
+
+export type IProduct = IProcessor | IMotherboard;
 
 export interface ProductModel {
     products: IProduct[];
