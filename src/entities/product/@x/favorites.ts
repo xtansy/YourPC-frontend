@@ -6,4 +6,4 @@
  * @see https://github.com/feature-sliced/documentation/discussions/390#discussioncomment-5570073
  */
 
-export type { IProduct } from "../model/types";
+export type { IProduct } from "../model/products/types";

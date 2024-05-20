@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import {
     Card,
     CardContent,
@@ -10,15 +10,19 @@ import {
     Box,
 } from "@mui/material";
 
-import { IProduct } from "entities/product/model/types";
-import { BottomSlot } from "widgets/productsListWidget";
-import { AddToFavIcon } from "features/addToFav";
+import { type IProduct } from "entities/product";
 
 interface ProductBigProps {
     item: IProduct;
+    addToCartActionSlot?: ReactNode;
+    addToFavActionSlot?: ReactNode;
 }
 
-export const ProductBig: FC<ProductBigProps> = ({ item }) => {
+export const ProductBig: FC<ProductBigProps> = ({
+    item,
+    addToCartActionSlot,
+    addToFavActionSlot,
+}) => {
     return (
         <Card sx={{ p: 5 }}>
             <Stack direction="row" spacing={10}>
@@ -47,10 +51,8 @@ export const ProductBig: FC<ProductBigProps> = ({ item }) => {
                         spacing={2}
                         alignItems="center"
                     >
-                        <Box>
-                            <BottomSlot currentProduct={item} />
-                        </Box>
-                        <AddToFavIcon item={item} />
+                        <Box>{addToCartActionSlot}</Box>
+                        {addToFavActionSlot}
                     </Stack>
                 </CardContent>
             </Stack>

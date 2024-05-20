@@ -8,6 +8,7 @@ import {
 } from "entities/product";
 import { useAppDispatch, useAppSelector } from "shared/model";
 import { useEffect } from "react";
+import { Box } from "@mui/material";
 
 const getTitle = (pathname: EPathnameProducts) => {
     const obj = {
@@ -31,8 +32,8 @@ export const ProductsPage = () => {
     }, [pathname]);
 
     return (
-        <>
+        <Box sx={{ marginBottom: "30px" }}>
             <ProductsListWidget title={getTitle(pathname)} items={products} />
-        </>
+        </Box>
     );
 };

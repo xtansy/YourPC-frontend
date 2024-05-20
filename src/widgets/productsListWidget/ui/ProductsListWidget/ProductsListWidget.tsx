@@ -1,37 +1,19 @@
-import Box from "@mui/material/Box";
+import { FC } from "react";
+
+import { Typography, Box } from "@mui/material";
 
 import { useAppSelector } from "shared/model";
-import { Typography } from "@mui/material";
 
 import { type IProduct, ProductList } from "entities/product";
 import { isAuthSelector } from "entities/user";
-import { productInCartSelector } from "entities/cart";
 
-import { ProductInCartCounter } from "features/productCounter";
-import { AddToCartButton } from "features/addToCart";
 import { AddToFavIcon } from "features/addToFav";
-import { FC } from "react";
+import { AddRemoveCartSmart } from "features/addRemoveCartSmart";
 
 interface ProductsListWidgetProps {
     title: string;
     items: IProduct[];
 }
-
-interface BottomSlotProps {
-    currentProduct: IProduct;
-}
-
-export const BottomSlot: FC<BottomSlotProps> = ({ currentProduct }) => {
-    const existItem = useAppSelector((state) =>
-        productInCartSelector(state, currentProduct._id)
-    );
-
-    return existItem ? (
-        <ProductInCartCounter product={existItem} />
-    ) : (
-        <AddToCartButton item={currentProduct} />
-    );
-};
 
 export const ProductsListWidget: FC<ProductsListWidgetProps> = ({
     title,
@@ -52,7 +34,7 @@ export const ProductsListWidget: FC<ProductsListWidgetProps> = ({
                 renderProductBottomSlot={
                     isAuth
                         ? (item: IProduct) => {
-                              return <BottomSlot currentProduct={item} />;
+                              return <AddRemoveCartSmart item={item} />;
                           }
                         : undefined
                 }

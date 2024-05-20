@@ -11,8 +11,7 @@ import {
     CardHeader,
     Rating,
 } from "@mui/material";
-
-import { type IProduct } from "entities/product/model/types";
+import { type IProduct } from "entities/product";
 
 interface ProductProps {
     item: IProduct;
@@ -24,7 +23,7 @@ export const Product: FC<ProductProps> = ({ item, bottomSlot, headerSlot }) => {
     const navigate = useNavigate();
 
     const onClickProduct = () => {
-        navigate("/product");
+        navigate(`/product/${item._id}`);
     };
 
     return (

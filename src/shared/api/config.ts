@@ -3,18 +3,23 @@ interface ConfigAPI {
     paths: {
         products: {
             getAll: string;
+            product: (id: string) => string;
         };
         motherboards: {
             getAll: string;
+            motherboard: (id: string) => string;
         };
         processors: {
             getAll: string;
+            processor: (id: string) => string;
         };
         videocards: {
             getAll: string;
+            videocard: (id: string) => string;
         };
         rams: {
             getAll: string;
+            ram: (id: string) => string;
         };
         user: {
             refresh: string;
@@ -36,18 +41,23 @@ export const config: ConfigAPI = {
     paths: {
         products: {
             getAll: "/products/",
+            product: (id) => `/product/${id}`,
         },
         motherboards: {
             getAll: "/motherboards/",
+            motherboard: (id) => `/motherboard/${id}`,
         },
         rams: {
             getAll: "/rams/",
+            ram: (id) => `/ram/${id}`,
         },
         videocards: {
             getAll: "/videocards/",
+            videocard: (id) => `/videocard/${id}`,
         },
         processors: {
             getAll: "/processors/",
+            processor: (id) => `/processor/${id}`,
         },
         user: {
             register: "/user/register",

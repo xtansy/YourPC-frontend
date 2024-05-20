@@ -53,7 +53,7 @@ export const Routing = () => {
                     />
                 }
             >
-                <Route path="/product" element={<ProductPage />} />
+                <Route path="/product/:id" element={<ProductPage />} />
                 <Route path="/catalog" element={<CatalogPage />} />
                 <Route path="/comparison" element={<ComparisonPage />} />
 

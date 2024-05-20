@@ -1,13 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { type IProduct } from "./types";
-import { EPathnameProducts } from "../api";
-import { getProducts } from "../api";
+import { EPathnameProducts, getProducts } from "entities/product/api";
+import { type IProduct } from "../product/types";
 
 export const getProductsAsync = createAsyncThunk<
     IProduct[],
     { pathname: EPathnameProducts }
->("product/getProducts", ({ pathname }) => {
+>("products/getProducts", ({ pathname }) => {
     console.log("@pathname", pathname);
     return getProducts(pathname);
 });

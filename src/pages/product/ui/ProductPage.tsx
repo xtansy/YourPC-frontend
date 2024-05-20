@@ -1,4 +1,4 @@
-import { IProduct, ProductBig } from "entities/product";
+import { useEffect } from "react";
 import {
     Avatar,
     Card,
@@ -9,26 +9,43 @@ import {
     Typography,
 } from "@mui/material";
 
-const MOCK_PROCESSOR: IProduct = {
-    _id: "1",
-    img: "https://res.cloudinary.com/dwe4hewmt/image/upload/v1713705242/%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80_2_qcbrbm.webp",
-    title: "Процессор",
-    price: 10000,
-    rate: 4,
-    type: "wired",
-};
+import { useParams } from "react-router-dom";
+
+import { useAppDispatch } from "shared/model";
+import { useAppSelector } from "shared/model";
+import {
+    getProductAsync,
+    productSelector,
+    productIsLoadingSelector,
+} from "entities/product";
+import { ProductBigWidget } from "widgets/productBigWidget";
 
 export const ProductPage = () => {
+    const productId: string = useParams().id!;
+
+    const dispatch = useAppDispatch();
+
+    const product = useAppSelector(productSelector);
+    const isLoading = useAppSelector(productIsLoadingSelector);
+
+    useEffect(() => {
+        dispatch(getProductAsync({ productId }));
+    }, [productId]);
+
+    if (isLoading) return <h1>Загрузка...</h1>;
+
+    if (!product) return <h1>Нет продукта</h1>;
+
     return (
         <>
             <Typography
                 variant="h4"
                 sx={{ marginTop: "28px", marginBottom: "40px" }}
             >
-                Продукт {MOCK_PROCESSOR.title}
+                Продукт {product.title}
             </Typography>
 
-            <ProductBig item={MOCK_PROCESSOR} />
+            <ProductBigWidget item={product} />
 
             <Card sx={{ marginTop: "20px", p: 2 }}>
                 <CardContent>

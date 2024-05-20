@@ -1,10 +1,10 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { getProductsAsync } from "./asyncThunks";
+import { getProductAsync } from "./asyncThunks";
 import { type IProduct, type ProductModel } from "./types";
 
 const initialState: ProductModel = {
-    products: [],
+    product: null,
     isLoading: false,
     errorMessage: null,
 };
@@ -15,19 +15,19 @@ export const productModel = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getProductsAsync.pending, (state) => {
+            .addCase(getProductAsync.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(getProductsAsync.rejected, (state) => {
+            .addCase(getProductAsync.rejected, (state) => {
                 state.isLoading = false;
-                state.errorMessage = "Error with get of headphones";
+                state.errorMessage = "Error with get of product";
             })
             .addCase(
-                getProductsAsync.fulfilled,
-                (state, action: PayloadAction<IProduct[]>) => {
+                getProductAsync.fulfilled,
+                (state, action: PayloadAction<IProduct>) => {
                     state.isLoading = false;
                     const payload = action.payload;
-                    state.products = payload;
+                    state.product = payload;
                 }
             );
     },

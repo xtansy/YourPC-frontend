@@ -1,4 +1,9 @@
-type ProductType = "wired" | "wireless";
+export enum EProductType {
+    processor = "processor",
+    ram = "ram",
+    motherboard = "motherboard",
+    videocard = "videocard",
+}
 
 interface IProductBase {
     _id: string;
@@ -6,7 +11,7 @@ interface IProductBase {
     title: string;
     price: number;
     rate: number;
-    type: ProductType;
+    type: EProductType;
 }
 
 interface IProcessor extends IProductBase {
@@ -22,7 +27,7 @@ interface IMotherboard extends IProductBase {
 export type IProduct = IProcessor | IMotherboard;
 
 export interface ProductModel {
-    products: IProduct[];
+    product: null | IProduct;
     isLoading: boolean;
     errorMessage: null | string;
 }
