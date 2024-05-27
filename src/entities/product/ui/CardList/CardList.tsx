@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Box } from "@mui/material";
 
-import { IProduct } from "entities/product/model/types";
+import { type IProduct } from "entities/product/";
 import { Card } from "../Card/Card";
 
 interface CardListProps<T extends IProduct> {

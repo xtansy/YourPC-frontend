@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 
-import { type IProduct } from "entities/product/model/types";
+import { type IProduct } from "entities/product/";
 import { Box, Paper, Typography } from "@mui/material";
 
 interface CardProps {

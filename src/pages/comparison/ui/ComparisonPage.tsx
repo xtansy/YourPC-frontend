@@ -1,16 +1,18 @@
 import { Card, Typography, CardContent, Stack, Box } from "@mui/material";
 import { BarChart } from "@mui/x-charts/BarChart";
 import { PieChart } from "@mui/x-charts/PieChart";
-import { type IProduct, Product } from "entities/product";
+import { type IProduct, Product, EProductType } from "entities/product";
 import { legendClasses } from "@mui/x-charts/ChartsLegend";
 import { LineChart } from "@mui/x-charts/LineChart";
+
 const MOCK_PROCESSOR: IProduct = {
     _id: "1",
     img: "https://res.cloudinary.com/dwe4hewmt/image/upload/v1713705242/%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80_2_qcbrbm.webp",
     title: "Процессор",
     price: 10000,
     rate: 4,
-    type: "wired",
+    type: EProductType.processor,
+    characteristics: [],
 };
 
 const data = [

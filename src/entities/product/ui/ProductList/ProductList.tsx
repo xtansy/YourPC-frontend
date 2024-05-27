@@ -1,6 +1,6 @@
 import css from "./ProductList.module.css";
 
-import { type IProduct } from "entities/product/model/types";
+import { type IProduct } from "entities/product/";
 
 import { Product } from "entities/product";
 import { FC, ReactNode } from "react";
