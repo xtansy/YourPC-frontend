@@ -41,7 +41,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onComplete }) => {
         dispatch(loginAsync(data))
             .unwrap()
             .then(() => {
-                if (onComplete) onComplete();
+                onComplete?.();
             })
             .catch((error: { message: string }) => {
                 setError("password", {
@@ -74,6 +74,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onComplete }) => {
                     >
                         <Stack spacing={1}>
                             <TextField
+                                error={Boolean(errors.login)}
                                 {...register("login")}
                                 label="Логин"
                                 variant="outlined"
@@ -84,6 +85,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onComplete }) => {
                         </Stack>
                         <Stack spacing={1}>
                             <TextField
+                                error={Boolean(errors.password)}
                                 {...register("password")}
                                 label="Пароль"
                                 variant="outlined"
