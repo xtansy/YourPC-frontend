@@ -62,7 +62,9 @@ export const Product: FC<ProductProps> = ({ item, bottomSlot, headerSlot }) => {
                         gap: "15px",
                     }}
                 >
-                    <Typography variant="h5">{item.title}</Typography>
+                    <Box sx={{ maxWidth: "218px" }}>
+                        <Typography variant="h5">{item.title}</Typography>
+                    </Box>
                     <Typography variant="h6">{item.price} ₽</Typography>
                 </Box>
 

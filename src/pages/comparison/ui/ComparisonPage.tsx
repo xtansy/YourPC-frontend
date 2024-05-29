@@ -5,28 +5,38 @@ import { type IProduct, Product, EProductType } from "entities/product";
 import { legendClasses } from "@mui/x-charts/ChartsLegend";
 import { LineChart } from "@mui/x-charts/LineChart";
 
-const MOCK_PROCESSOR: IProduct = {
-    _id: "1",
-    img: "https://res.cloudinary.com/dwe4hewmt/image/upload/v1713705242/%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80_2_qcbrbm.webp",
-    title: "Процессор",
-    price: 10000,
-    rate: 4,
+const MOCK_PROCESSOR_1: IProduct = {
+    _id: "6657b0bd998ae1c611774cbd",
+    img: "https://lightflightpc.ru/uploads/cpu/Intel Core i9-10900X OEM_preview.png",
+    title: "Intel Core i9-10940X",
+    price: 111_800,
+    rate: 5,
+    type: EProductType.processor,
+    characteristics: [],
+};
+
+const MOCK_PROCESSOR_2: IProduct = {
+    _id: "6657b0d6998ae1c611774cbf",
+    img: "https://lightflightpc.ru/uploads/cpu/AMD%20Ryzen%20Threadripper%203960X_preview.png",
+    title: "AMD Ryzen Threadripper 3960X",
+    price: 193_300,
+    rate: 5,
     type: EProductType.processor,
     characteristics: [],
 };
 
 const data = [
-    { id: 0, value: 10, label: "Процессор 1" },
-    { id: 1, value: 15, label: "Процессор 2" },
-    { id: 2, value: 30, label: "Процессор 3" },
+    { id: 0, value: 10, label: "Процессор" },
+    { id: 1, value: 15, label: MOCK_PROCESSOR_1.title },
+    { id: 2, value: 30, label: MOCK_PROCESSOR_2.title },
 ];
 
 const barChartsParams = {
     xAxis: [
         {
             data: [
-                "Процессор 1",
-                "Процессор 2",
+                MOCK_PROCESSOR_2.title,
+                MOCK_PROCESSOR_1.title,
                 "Процессор 3",
                 "Процессор 4",
                 "Процессор 5",
@@ -37,7 +47,7 @@ const barChartsParams = {
     series: [
         { data: [2, 5, 3, 4, 1], stack: "1", label: "Ядер" },
         { data: [10, 3, 1, 2, 10], stack: "1", label: "Базовая частота" },
-        { data: [10, 3, 1, 2, 10], stack: "1", label: "Максимальная частота" },
+        { data: [10, 3, 1, 2, 7], stack: "1", label: "Максимальная частота" },
     ],
     margin: { top: 10, right: 10 },
     sx: {
@@ -76,18 +86,18 @@ const GermanyGDPperCapita = [
 const lineChartsParams = {
     series: [
         {
-            label: "Температура Процессора 1",
+            label: `Температура ${MOCK_PROCESSOR_2.title}`,
+            data: UKGDPperCapita,
+            showMark: false,
+        },
+        {
+            label: `Температура ${MOCK_PROCESSOR_1.title}`,
             data: FranceGDPperCapita,
             showMark: false,
         },
         {
             label: "Температура Процессора 2",
             data: GermanyGDPperCapita,
-            showMark: false,
-        },
-        {
-            label: "Температура Процессора 3",
-            data: UKGDPperCapita,
             showMark: false,
         },
     ],
@@ -106,16 +116,16 @@ export const ComparisonPage = () => {
             <Card>
                 <CardContent>
                     <Typography sx={{ marginBottom: "10px" }} variant="h5">
-                        Процессор vs Процессор
+                        {MOCK_PROCESSOR_1.title} vs {MOCK_PROCESSOR_2.title}
                     </Typography>
                     <Stack
                         direction="row"
                         justifyContent="space-around"
                         alignItems="center"
                     >
-                        <Product item={MOCK_PROCESSOR} />
+                        <Product item={MOCK_PROCESSOR_1} />
                         <Typography variant="h3">VS</Typography>
-                        <Product item={MOCK_PROCESSOR} />
+                        <Product item={MOCK_PROCESSOR_2} />
                     </Stack>
                 </CardContent>
             </Card>
@@ -149,7 +159,10 @@ export const ComparisonPage = () => {
             </Card>
             <Card sx={{ marginTop: "30px", marginBottom: "30px" }}>
                 <CardContent>
-                    <Typography variant="h5">Итоги</Typography>
+                    <Typography variant="h5">Итог:</Typography>
+                    <Typography variant="h5">
+                        Мы рекомендуем к покупке {MOCK_PROCESSOR_2.title}
+                    </Typography>
                     <Box>
                         <PieChart
                             series={[
