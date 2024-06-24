@@ -47,42 +47,6 @@ export const ProductPage = () => {
 
             <ProductBigWidget item={product} />
 
-            <Card sx={{ marginTop: "20px", p: 2 }}>
-                <CardContent>
-                    <Typography variant="h5" sx={{ marginBottom: "15px" }}>
-                        Характеристики:
-                    </Typography>
-                    <Stack spacing={1} divider={<Divider />}>
-                        <Stack direction="row" justifyContent="space-between">
-                            <Typography variant="h6">Ядер</Typography>
-                            <Typography variant="h6">16</Typography>
-                        </Stack>
-                        <Stack direction="row" justifyContent="space-between">
-                            <Typography variant="h6">Потоков</Typography>
-                            <Typography variant="h6">24</Typography>
-                        </Stack>
-                        <Stack direction="row" justifyContent="space-between">
-                            <Typography variant="h6">
-                                Базовая частота
-                            </Typography>
-                            <Typography variant="h6">3.2 ГГц</Typography>
-                        </Stack>
-                        <Stack direction="row" justifyContent="space-between">
-                            <Typography variant="h6">
-                                Максимальная частота
-                            </Typography>
-                            <Typography variant="h6">5.2 ГГц</Typography>
-                        </Stack>
-                        <Stack direction="row" justifyContent="space-between">
-                            <Typography variant="h6">
-                                Максимальная температура ядра
-                            </Typography>
-                            <Typography variant="h6">100 °C</Typography>
-                        </Stack>
-                    </Stack>
-                </CardContent>
-            </Card>
-
             <Card sx={{ marginTop: "20px", marginBottom: "20px", p: 2 }}>
                 <CardContent>
                     <Typography variant="h5" sx={{ marginBottom: "15px" }}>

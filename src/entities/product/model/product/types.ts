@@ -1,3 +1,10 @@
+import {
+    type IProcessorCharacteristics,
+    type IVideocardCharacteristics,
+    type IMotherboardCharacteristics,
+    type IRamCharacteristics,
+} from "entities/characteristics/@x/product";
+
 export enum EProductType {
     processor = "processor",
     ram = "ram",
@@ -11,20 +18,27 @@ interface IProductBase {
     title: string;
     price: number;
     rate: number;
-    type: EProductType;
 }
 
-interface IProcessor extends IProductBase {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    characteristics: any;
+export interface IProcessor extends IProductBase, IProcessorCharacteristics {
+    type: EProductType.processor;
 }
 
-interface IMotherboard extends IProductBase {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    characteristics: any;
+export interface IMotherboard
+    extends IProductBase,
+        IMotherboardCharacteristics {
+    type: EProductType.motherboard;
 }
 
-export type IProduct = IProcessor | IMotherboard;
+export interface IRam extends IProductBase, IRamCharacteristics {
+    type: EProductType.ram;
+}
+
+export interface IVidecard extends IProductBase, IVideocardCharacteristics {
+    type: EProductType.videocard;
+}
+
+export type IProduct = IProcessor | IMotherboard | IRam | IVidecard;
 
 export interface ProductModel {
     product: null | IProduct;

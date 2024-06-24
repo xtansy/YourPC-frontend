@@ -34,10 +34,8 @@ export const Product: FC<ProductProps> = ({ item, bottomSlot, headerSlot }) => {
                 p: 1,
                 width: "100%",
                 maxWidth: 400,
-                minHeight: 450,
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "space-between",
 
                 ":hover": {
                     border: "1px solid rgba(51, 153, 255, 0.25)",
@@ -45,13 +43,18 @@ export const Product: FC<ProductProps> = ({ item, bottomSlot, headerSlot }) => {
             }}
         >
             <CardHeader
-                sx={{ padding: "0 5px 0 0" }}
+                sx={{ padding: "0 5px 0 0", marginBottom: "5px" }}
                 action={<>{headerSlot}</>}
             />
             <CardMedia
                 component="img"
                 image={item.img}
-                sx={{ maxWidth: 400, maxHeight: 300, objectFit: "contain" }}
+                sx={{
+                    maxWidth: 400,
+                    maxHeight: 300,
+                    objectFit: "contain",
+                    minHeight: 300,
+                }}
             />
             <CardContent>
                 <Box
@@ -60,6 +63,7 @@ export const Product: FC<ProductProps> = ({ item, bottomSlot, headerSlot }) => {
                         alignItems: "center",
                         justifyContent: "space-between",
                         gap: "15px",
+                        minHeight: "65px",
                     }}
                 >
                     <Box sx={{ maxWidth: "218px" }}>
@@ -70,6 +74,7 @@ export const Product: FC<ProductProps> = ({ item, bottomSlot, headerSlot }) => {
 
                 <Box
                     sx={{
+                        marginTop: "10px",
                         minHeight: "51px",
                         display: "flex",
                         alignItems: "center",

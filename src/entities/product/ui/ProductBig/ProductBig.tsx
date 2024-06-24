@@ -16,12 +16,14 @@ interface ProductBigProps {
     item: IProduct;
     addToCartActionSlot?: ReactNode;
     addToFavActionSlot?: ReactNode;
+    addToComparisonActionSlot?: ReactNode;
 }
 
 export const ProductBig: FC<ProductBigProps> = ({
     item,
     addToCartActionSlot,
     addToFavActionSlot,
+    addToComparisonActionSlot,
 }) => {
     return (
         <Card sx={{ p: 5 }}>
@@ -33,6 +35,7 @@ export const ProductBig: FC<ProductBigProps> = ({
                     alt="Product image"
                 />
                 <CardContent>
+                    {addToFavActionSlot}
                     <Stack spacing={5}>
                         <Typography variant="h4">{item.title}</Typography>
                         <Typography variant="h5">
@@ -52,7 +55,7 @@ export const ProductBig: FC<ProductBigProps> = ({
                         alignItems="center"
                     >
                         <Box>{addToCartActionSlot}</Box>
-                        {addToFavActionSlot}
+                        {addToComparisonActionSlot}
                     </Stack>
                 </CardContent>
             </Stack>

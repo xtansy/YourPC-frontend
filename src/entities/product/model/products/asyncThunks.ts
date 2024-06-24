@@ -7,6 +7,5 @@ export const getProductsAsync = createAsyncThunk<
     IProduct[],
     { pathname: EPathnameProducts }
 >("products/getProducts", ({ pathname }) => {
-    console.log("@pathname", pathname);
     return getProducts(pathname);
 });

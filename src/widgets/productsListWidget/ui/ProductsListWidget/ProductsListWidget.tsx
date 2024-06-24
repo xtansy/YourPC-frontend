@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Stack } from "@mui/material";
 
 import { useAppSelector } from "shared/model";
 
@@ -9,6 +9,7 @@ import { isAuthSelector } from "entities/user";
 
 import { AddToFavIcon } from "features/addToFav";
 import { AddRemoveCartSmart } from "features/addRemoveCartSmart";
+import { AddRemoveComparisonSmartButton } from "features/addRemoveComparisonSmart";
 
 interface ProductsListWidgetProps {
     title: string;
@@ -41,7 +42,14 @@ export const ProductsListWidget: FC<ProductsListWidgetProps> = ({
                 renderProductHeaderSlot={
                     isAuth
                         ? (item: IProduct) => {
-                              return <AddToFavIcon item={item} />;
+                              return (
+                                  <Stack alignItems="flex-end">
+                                      <AddToFavIcon item={item} />
+                                      <AddRemoveComparisonSmartButton
+                                          item={item}
+                                      />
+                                  </Stack>
+                              );
                           }
                         : undefined
                 }

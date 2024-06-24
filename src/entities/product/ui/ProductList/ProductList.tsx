@@ -1,9 +1,7 @@
-import css from "./ProductList.module.css";
-
-import { type IProduct } from "entities/product/";
-
-import { Product } from "entities/product";
 import { FC, ReactNode } from "react";
+import { Grid } from "@mui/material";
+
+import { type IProduct, Product } from "entities/product/";
 
 interface ProductListProps {
     items: IProduct[];
@@ -23,23 +21,25 @@ export const ProductList: FC<ProductListProps> = ({
      * to render-prop to avoid entity cross-import
      */
     return (
-        <div className={css.list}>
+        <Grid container spacing={4}>
             {items.map((item) => {
                 return (
-                    <Product
-                        key={item._id}
-                        item={item}
-                        headerSlot={
-                            renderProductHeaderSlot &&
-                            renderProductHeaderSlot(item)
-                        }
-                        bottomSlot={
-                            renderProductBottomSlot &&
-                            renderProductBottomSlot(item)
-                        }
-                    />
+                    <Grid item md={4} xs={8}>
+                        <Product
+                            key={item._id}
+                            item={item}
+                            headerSlot={
+                                renderProductHeaderSlot &&
+                                renderProductHeaderSlot(item)
+                            }
+                            bottomSlot={
+                                renderProductBottomSlot &&
+                                renderProductBottomSlot(item)
+                            }
+                        />
+                    </Grid>
                 );
             })}
-        </div>
+        </Grid>
     );
 };
