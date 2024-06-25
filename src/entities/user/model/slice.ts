@@ -67,7 +67,6 @@ export const userModel = createSlice({
             })
 
             .addCase(editAsync.fulfilled, (state, { payload }) => {
-                console.log("новый юзер payload", payload);
                 state.user = payload;
             });
     },
