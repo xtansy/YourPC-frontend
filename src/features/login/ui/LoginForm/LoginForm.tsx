@@ -43,9 +43,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onComplete }) => {
             .then(() => {
                 onComplete?.();
             })
-            .catch((error: { message: string }) => {
+            .catch((error: { errorMessage: string }) => {
                 setError("password", {
-                    message: error.message,
+                    message: error.errorMessage,
                 });
             });
     };

@@ -31,7 +31,14 @@ const getCharacteristicsByKey = (
     return result;
 };
 
-const NEGATIVE_CHARACTERISTICS: string[] = ["heating", "maxCoreTemperature"];
+const NEGATIVE_CHARACTERISTICS: string[] = [
+    "heating",
+    "maxCoreTemperature",
+    "processorsCount",
+    "textureBlocks",
+    "memoryType",
+    "clockFrequency",
+];
 
 export const generateBarChartCustomParams = (
     items: IProduct[]

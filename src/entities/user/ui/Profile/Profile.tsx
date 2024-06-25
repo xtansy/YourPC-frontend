@@ -10,12 +10,14 @@ import {
     CardActions,
     Stack,
 } from "@mui/material";
+import { type User } from "entities/user/model/types";
 
 interface ProfileProps {
+    user: User;
     editLogoutButtonsSlot?: ReactNode;
 }
 
-export const Profile: FC<ProfileProps> = ({ editLogoutButtonsSlot }) => {
+export const Profile: FC<ProfileProps> = ({ user, editLogoutButtonsSlot }) => {
     return (
         <Card
             sx={{
@@ -50,7 +52,7 @@ export const Profile: FC<ProfileProps> = ({ editLogoutButtonsSlot }) => {
                                     Имя:
                                 </Typography>
                                 <Typography variant="subtitle1">
-                                    Андрей
+                                    {user.name}
                                 </Typography>
                             </Stack>
                             <Stack direction="row" spacing={4}>
@@ -58,7 +60,7 @@ export const Profile: FC<ProfileProps> = ({ editLogoutButtonsSlot }) => {
                                     Фамилия:
                                 </Typography>
                                 <Typography variant="subtitle1">
-                                    Скидин
+                                    {user.surname}
                                 </Typography>
                             </Stack>
                             <Stack direction="row" spacing={4}>
@@ -66,7 +68,7 @@ export const Profile: FC<ProfileProps> = ({ editLogoutButtonsSlot }) => {
                                     Почта:
                                 </Typography>
                                 <Typography variant="subtitle1">
-                                    andrew@mail.ru
+                                    {user.email}
                                 </Typography>
                             </Stack>
                         </Stack>

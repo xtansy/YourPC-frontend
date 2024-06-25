@@ -24,9 +24,8 @@ export const ProductList: FC<ProductListProps> = ({
         <Grid container spacing={4}>
             {items.map((item) => {
                 return (
-                    <Grid item md={4} xs={8}>
+                    <Grid key={item._id} item md={4} xs={8}>
                         <Product
-                            key={item._id}
                             item={item}
                             headerSlot={
                                 renderProductHeaderSlot &&

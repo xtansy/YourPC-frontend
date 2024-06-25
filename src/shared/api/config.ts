@@ -3,6 +3,7 @@ interface ConfigAPI {
     paths: {
         products: {
             getAll: string;
+            addFeedback: string;
             product: (id: string) => string;
         };
         motherboards: {
@@ -26,6 +27,8 @@ interface ConfigAPI {
             register: string;
             login: string;
             logout: string;
+            recovery: string;
+            edit: string;
         };
     };
     user: {
@@ -40,6 +43,7 @@ export const config: ConfigAPI = {
     baseUrl: BASE_URL,
     paths: {
         products: {
+            addFeedback: "/products",
             getAll: "/products/",
             product: (id) => `/product/${id}`,
         },
@@ -64,6 +68,8 @@ export const config: ConfigAPI = {
             login: "/user/login",
             logout: "/user/logout",
             refresh: "/user/refresh",
+            recovery: "/user/recovery",
+            edit: "/user/edit",
         },
     },
     user: {

@@ -1,4 +1,4 @@
-import { User } from "../model/types";
+import { type User } from "../model/types";
 
 export interface LoginProps {
     login: string;
@@ -11,6 +11,12 @@ export interface RegisterProps {
     surname: string;
     email: string;
     password: string;
+}
+
+export interface EditProps {
+    name: string;
+    surname: string;
+    id: string;
 }
 
 export interface LoginResponse extends User {

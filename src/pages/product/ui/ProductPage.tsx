@@ -19,6 +19,8 @@ import {
     productIsLoadingSelector,
 } from "entities/product";
 import { ProductBigWidget } from "widgets/productBigWidget";
+import { AddFeedbackForm } from "features/addFeedback";
+import { isAuthSelector } from "entities/user";
 
 export const ProductPage = () => {
     const productId: string = useParams().id!;
@@ -27,6 +29,7 @@ export const ProductPage = () => {
 
     const product = useAppSelector(productSelector);
     const isLoading = useAppSelector(productIsLoadingSelector);
+    const isAuth = useAppSelector(isAuthSelector);
 
     useEffect(() => {
         dispatch(getProductAsync({ productId }));
@@ -53,52 +56,31 @@ export const ProductPage = () => {
                         Отзывы:
                     </Typography>
                     <Stack divider={<Divider />} spacing={2}>
-                        <Stack direction="row" spacing={2}>
-                            <Avatar>В</Avatar>
-                            <Stack>
-                                <Typography>Вася Васев</Typography>
-                                <Typography variant="subtitle1">
-                                    Нормально, но он не выдает 1000фпс в контра
-                                    сити((
-                                </Typography>
-                                <Rating value={3} name="read-only" readOnly />
-                            </Stack>
-                        </Stack>
-
-                        <Stack direction="row" spacing={2}>
-                            <Avatar>М</Avatar>
-                            <Stack>
-                                <Typography>Мага Магомедов</Typography>
-                                <Typography variant="subtitle1">
-                                    Процессор Сила💪 и Ахмат тоже сила всем
-                                    саламалейкум 🦅
-                                </Typography>
-                                <Rating value={5} name="read-only" readOnly />
-                            </Stack>
-                        </Stack>
-
-                        <Stack direction="row" spacing={2}>
-                            <Avatar>А</Avatar>
-                            <Stack>
-                                <Typography>Анна Петровна</Typography>
-                                <Typography variant="subtitle1">
-                                    Подарите бесплатно у меня дети плачут играть
-                                    хотят
-                                </Typography>
-                                <Rating value={2} name="read-only" readOnly />
-                            </Stack>
-                        </Stack>
-
-                        <Stack direction="row" spacing={2}>
-                            <Avatar>А</Avatar>
-                            <Stack>
-                                <Typography>Аноним Анонимов</Typography>
-                                <Typography variant="subtitle1">
-                                    Говно
-                                </Typography>
-                                <Rating value={1} name="read-only" readOnly />
-                            </Stack>
-                        </Stack>
+                        {isAuth && <AddFeedbackForm />}
+                        {product.feedback.map((item) => {
+                            return (
+                                <Stack
+                                    key={item._id}
+                                    direction="row"
+                                    spacing={2}
+                                >
+                                    <Avatar>{item.user.name[0]}</Avatar>
+                                    <Stack>
+                                        <Typography>
+                                            {item.user.name} {item.user.surname}
+                                        </Typography>
+                                        <Typography variant="subtitle1">
+                                            {item.text}
+                                        </Typography>
+                                        <Rating
+                                            value={item.rate}
+                                            name="read-only"
+                                            readOnly
+                                        />
+                                    </Stack>
+                                </Stack>
+                            );
+                        })}
                     </Stack>
                 </CardContent>
             </Card>

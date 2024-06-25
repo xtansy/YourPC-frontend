@@ -39,20 +39,14 @@ export const ProductsListWidget: FC<ProductsListWidgetProps> = ({
                           }
                         : undefined
                 }
-                renderProductHeaderSlot={
-                    isAuth
-                        ? (item: IProduct) => {
-                              return (
-                                  <Stack alignItems="flex-end">
-                                      <AddToFavIcon item={item} />
-                                      <AddRemoveComparisonSmartButton
-                                          item={item}
-                                      />
-                                  </Stack>
-                              );
-                          }
-                        : undefined
-                }
+                renderProductHeaderSlot={(item: IProduct) => {
+                    return (
+                        <Stack alignItems="flex-end">
+                            {isAuth && <AddToFavIcon item={item} />}
+                            <AddRemoveComparisonSmartButton item={item} />
+                        </Stack>
+                    );
+                }}
             />
         </Box>
     );

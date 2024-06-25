@@ -1,23 +1,8 @@
-import {
-    Box,
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    Stack,
-    TextField,
-    Typography,
-} from "@mui/material";
+import { Typography } from "@mui/material";
 
-import { useNavigate } from "react-router-dom";
+import { RecoveryForm } from "features/recovery";
 
 export const RecoveryPage = () => {
-    const navigate = useNavigate();
-
-    const onClickLogin = () => {
-        navigate("/login");
-    };
-
     return (
         <>
             <Typography
@@ -26,7 +11,8 @@ export const RecoveryPage = () => {
             >
                 Восстановление пароля
             </Typography>
-            <Card sx={{ maxWidth: "350px" }}>
+            <RecoveryForm />
+            {/* <Card sx={{ maxWidth: "350px" }}>
                 <CardContent>
                     <Stack spacing={2}>
                         <Typography>
@@ -56,7 +42,7 @@ export const RecoveryPage = () => {
                         </Box>
                     </Stack>
                 </CardContent>
-            </Card>
+            </Card> */}
         </>
     );
 };

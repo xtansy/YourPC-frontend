@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { type UserModel } from "./types";
-import { registerAsync, loginAsync, logoutAsync } from "./asyncThunk";
+import {
+    registerAsync,
+    loginAsync,
+    logoutAsync,
+    editAsync,
+} from "./asyncThunk";
 
 const initialState: UserModel = {
     isAuth: false,
@@ -59,6 +64,11 @@ export const userModel = createSlice({
                 state.isLoading = false;
                 state.user = undefined;
                 localStorage.removeItem("accessToken");
+            })
+
+            .addCase(editAsync.fulfilled, (state, { payload }) => {
+                console.log("новый юзер payload", payload);
+                state.user = payload;
             });
     },
 });

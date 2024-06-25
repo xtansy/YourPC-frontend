@@ -26,10 +26,7 @@ export const LineChartComparison = () => {
     const _items = useAppSelector(comparisonItemsSelector);
 
     const firstItemType = _items[0].type;
-    if (
-        firstItemType === EProductType.ram ||
-        firstItemType === EProductType.motherboard
-    ) {
+    if (firstItemType !== EProductType.processor) {
         return null;
     }
 

@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { getProductAsync } from "./asyncThunks";
+import { getProductAsync, addFeedbacktAsync } from "./asyncThunks";
 import { type IProduct, type ProductModel } from "./types";
 
 const initialState: ProductModel = {
@@ -27,6 +27,13 @@ export const productModel = createSlice({
                 (state, action: PayloadAction<IProduct>) => {
                     state.isLoading = false;
                     const payload = action.payload;
+                    state.product = payload;
+                }
+            )
+
+            .addCase(
+                addFeedbacktAsync.fulfilled,
+                (state, { payload }: PayloadAction<IProduct>) => {
                     state.product = payload;
                 }
             );

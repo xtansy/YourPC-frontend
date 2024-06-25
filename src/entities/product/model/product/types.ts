@@ -4,6 +4,7 @@ import {
     type IMotherboardCharacteristics,
     type IRamCharacteristics,
 } from "entities/characteristics/@x/product";
+import { User } from "entities/user/model/types";
 
 export enum EProductType {
     processor = "processor",
@@ -12,12 +13,20 @@ export enum EProductType {
     videocard = "videocard",
 }
 
+export interface Feedback {
+    _id: string;
+    user: User;
+    text: string;
+    rate: number;
+}
+
 interface IProductBase {
     _id: string;
     img: string;
     title: string;
     price: number;
     rate: number;
+    feedback: Feedback[];
 }
 
 export interface IProcessor extends IProductBase, IProcessorCharacteristics {

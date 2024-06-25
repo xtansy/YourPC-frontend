@@ -1,7 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { type IProduct } from "./types";
-import { getProduct } from "entities/product/api";
+import {
+    getProduct,
+    addFeedback,
+    type AddFeedbackProps,
+} from "entities/product/api";
 
 export const getProductAsync = createAsyncThunk<
     IProduct,
@@ -9,3 +13,10 @@ export const getProductAsync = createAsyncThunk<
 >("product/getProduct", ({ productId }) => {
     return getProduct(productId);
 });
+
+export const addFeedbacktAsync = createAsyncThunk<IProduct, AddFeedbackProps>(
+    "product/addFeedback",
+    (props) => {
+        return addFeedback(props);
+    }
+);

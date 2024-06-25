@@ -6,4 +6,10 @@
  * @see https://github.com/feature-sliced/documentation/discussions/390#discussioncomment-5570073
  */
 
-export type { IProduct } from "../model/product/types";
+export type {
+    IProduct,
+    IMotherboard,
+    IProcessor,
+    IRam,
+    IVidecard,
+} from "../model/product/types";

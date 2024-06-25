@@ -24,7 +24,7 @@ export const RamCharacteristics: FC<RamCharacteristicsProps> = ({
                     <Stack direction="row" justifyContent="space-between">
                         <Typography variant="h6">Тактовая частота</Typography>
                         <Typography variant="h6">
-                            {characteristics.clockFrequency} ГГц
+                            {characteristics.clockFrequency} МГЦ
                         </Typography>
                     </Stack>
 
